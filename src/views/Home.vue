@@ -10,10 +10,10 @@ const data = ref<[]>();
 
 let home_clothes = () => {
   axios
-    .get("https://api.storerestapi.com/products")
+    .get("https://fakestoreapi.com/products")
     .then((res) => {
-      console.log(res.data.data);
-      data.value = res.data.data;
+      console.log(res.data);
+      data.value = res.data;
     })
 
     .catch((res) => {
@@ -27,17 +27,26 @@ home_clothes();
 <template>
   <Offer />
 
-  <v-container>
-    <v-row justify="center">
-      <div v-for="items in data" :key="items._id">
-        <v-col cols-4>
-          <v-card :title="items.title" :text="items.slug" variant="outlined">
-            <v-card-actions>
-              <v-btn>{{ items.price }}</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-      </div>
+  <v-container fluid class="haha">
+    <v-row>
+      <v-col v-for="items in data" :key="items._id" xl="3" xxl="2">
+        <v-card
+          class="ma-10"
+          :title="items.title"
+          :subtitle="items.description"
+          variant="outlined"
+        >
+          <v-img
+            :src="items.image"
+            class="align-end"
+            gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+            height="200px"
+            cover
+          >
+          </v-img>
+          <v-chip>{{ items.price }}</v-chip>
+        </v-card>
+      </v-col>
     </v-row>
   </v-container>
 
@@ -50,13 +59,6 @@ home_clothes();
 
 <style lang="scss">
 .haha {
-  padding: 30px;
-  background-color: red;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   .cardy {
     padding: 20px;
     background-color: lightcoral;
