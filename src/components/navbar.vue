@@ -1,8 +1,9 @@
 <script lang="ts" setup></script>
 
 <template>
-  <v-app-bar class="py-4 pl-4">
-    <img src="@/assets/imgs/logo/logo.svg" />
+  <!--   class="py-4 pl-4" -->
+  <v-app-bar flat border height="120">
+    <img class="logo" src="@/assets/imgs/logo/logo.svg" />
 
     <div class="search-bar">
       <input class="search-bar__input" placeholder="Search" type="text" />
@@ -32,6 +33,7 @@
 
 <style lang="scss" scoped>
 @import "@/styles/index.scss";
+
 .search-bar {
   margin-left: 100px;
 
