@@ -28,7 +28,7 @@ home_clothes();
     <v-container fluid>
       <v-row>
         <v-col v-for="items in data" :key="items._id" xl="3" xxl="2">
-          <v-card class="ma-10 pa-4 rounded-xl">
+          <v-card class="ma-10 pa-4 rounded-xl" color="#2B2730">
             <v-img
               class="iimg rounded-xl"
               :src="items.image"

@@ -1,12 +1,21 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="offer">
-    <h1 class="offer__title">We present... "Mindless"</h1>
-    <span class="offer__description"
+  <div class="offer d-flex flex-column align-center justify-center">
+    <h1 class="text-h1 font-weight-black text-grey-lighten-5">
+      We present... "Mindless"
+    </h1>
+    <span class="text-h5 font-weight-light text-grey-lighten-5"
       >Not everybody has the privilege to be mindless.</span
     >
-    <div class="offer__btn">Buy</div>
+    <v-btn class="rounded-xl">
+      Buy now!
+      <template v-slot:append>
+        <v-icon>
+          <img src="@/assets/imgs/icons/Arrow-down.svg" alt=""
+        /></v-icon>
+      </template>
+    </v-btn>
   </div>
 </template>
 
@@ -17,27 +26,6 @@
   background-position: center;
   background-size: cover;
   height: 550px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
   gap: 20px;
-
-  &__title {
-    color: white;
-    font-size: 56px;
-  }
-
-  &__description {
-    font-style: italic;
-  }
-
-  &__btn {
-    padding: 10px 20px;
-    border-radius: 10px;
-    background-color: white;
-  }
 }
 </style>

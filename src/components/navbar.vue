@@ -1,4 +1,24 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import axios from "axios";
+import { ref } from "vue";
+
+let categories = ref<[]>();
+
+let get_categories = () => {
+  axios
+    .get("https://fakestoreapi.com/products/categories")
+    .then((res) => {
+      console.log(res);
+      categories.value = res.data;
+    })
+
+    .catch((res) => {
+      console.log(res);
+    });
+};
+
+get_categories();
+</script>
 
 <template>
   <!--   class="py-4 pl-4" -->
@@ -12,10 +32,19 @@
 
     <v-spacer />
 
-    <div class="category-btn">
-      <img src="@/assets/imgs/icons/Category.svg" />
-      <div>Category</div>
-    </div>
+    <v-menu>
+      <template v-slot:activator="{ props }">
+        <div class="category-btn" v-bind="props">
+          <img src="@/assets/imgs/icons/Category.svg" />
+          <div>Category</div>
+        </div>
+      </template>
+      <v-list>
+        <v-list-item v-for="category in categories" :key="category">
+          <v-list-item-title>{{ category }}</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
 
     <v-btn icon>
       <v-icon>
