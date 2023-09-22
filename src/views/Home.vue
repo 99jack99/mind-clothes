@@ -35,10 +35,14 @@ home_clothes();
               height="200px"
               cover
             />
-            <div class="d-flex flex-column align-start justify-center">
+            <div class="mt-5 d-flex flex-column align-start justify-center">
               <div class="d-flex align-start w-100 pa-1 text-box">
-                <h1 class="w-80 text-box__title">{{ items.title }}</h1>
-                <h2 class="w-20 ml-2">{{ items.price }}$</h2>
+                <div class="w-80 text-h4 font-weight-medium text-box__title">
+                  {{ items.title }}
+                </div>
+                <div class="w-20 ml-2 text-h5 font-weight-medium font-italic">
+                  {{ items.price }}$
+                </div>
               </div>
 
               <div class="d-flex align-center justify-start">
@@ -47,17 +51,19 @@ home_clothes();
                   clearable
                   density="compact"
                   :model-value="items.rating.rate"
+                  active-color="grey-lighten-2"
+                  color="grey-lighten-2"
                 ></v-rating>
                 <span class="ml-2">({{ items.rating.count }})</span>
               </div>
 
               <div class="d-flex align-center mt-10">
-                <v-btn icon>
+                <v-btn icon class="bg-grey-lighten-2">
                   <v-icon>
                     <img src="@/assets/imgs/icons/Buy.svg" />
                   </v-icon>
                 </v-btn>
-                <v-btn class="ml-2" icon>
+                <v-btn class="ml-2 bg-pink-lighten-4" icon>
                   <v-icon>
                     <img src="@/assets/imgs/icons/Heart.svg" />
                   </v-icon>

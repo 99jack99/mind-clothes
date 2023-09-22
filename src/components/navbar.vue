@@ -47,15 +47,19 @@ get_categories();
     </v-menu>
 
     <v-btn icon>
-      <v-icon>
-        <img src="@/assets/imgs/icons/Heart.svg" />
-      </v-icon>
+      <router-link to="/favorites">
+        <v-icon>
+          <img src="@/assets/imgs/icons/Heart.svg" />
+        </v-icon>
+      </router-link>
     </v-btn>
 
     <v-btn icon>
-      <v-icon>
-        <img src="@/assets/imgs/icons/Bag.svg" />
-      </v-icon>
+      <router-link to="/cart">
+        <v-icon>
+          <img src="@/assets/imgs/icons/Bag.svg" />
+        </v-icon>
+      </router-link>
     </v-btn>
   </v-app-bar>
 </template>

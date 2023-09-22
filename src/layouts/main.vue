@@ -7,7 +7,7 @@ import foot from "@/components/footer.vue";
   <v-app>
     <navbar />
     <v-main>
-      <router-view />
+      <router-view></router-view>
     </v-main>
     <foot />
   </v-app>

@@ -18,7 +18,7 @@
 
     <v-divider></v-divider>
 
-    <div>2023 — <strong>Jackson Almeida</strong></div>
+    <div>2023 — <strong>Jackson Almeida 🤴</strong></div>
   </v-footer>
 </template>
 
