@@ -12,11 +12,11 @@
 
 <style lang="scss" scoped>
 .offer {
-  background-image: url("@/assets/imgs/hero.jpg");
+  background-image: url("@/assets/imgs/heroo.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 250px;
+  height: 550px;
 
   display: flex;
   flex-direction: column;
