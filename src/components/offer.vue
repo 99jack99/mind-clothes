@@ -21,7 +21,7 @@
 
 <style lang="scss" scoped>
 .offer {
-  background-image: url("@/assets/imgs/heroo.jpg");
+  background-image: url("@/assets/imgs/hero.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

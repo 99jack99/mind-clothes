@@ -24,7 +24,7 @@ home_clothes();
 <template>
   <Offer />
 
-  <v-parallax src="@/assets/imgs/te2.jpg">
+  <v-parallax src="@/assets/imgs/bg-home.jpg">
     <v-container fluid>
       <v-row>
         <v-col v-for="items in data" :key="items._id" xl="3" xxl="2">
