@@ -4,11 +4,9 @@ import foot from "@/components/footer.vue";
 </script>
 
 <template>
-  <v-app>
-    <navbar />
-    <v-main>
-      <router-view></router-view>
-    </v-main>
-    <foot />
-  </v-app>
+  <navbar />
+  <v-main>
+    <router-view />
+  </v-main>
+  <foot />
 </template>
