@@ -1,24 +1,19 @@
 <script lang="ts" setup>
 import Offer from "@/components/offer.vue";
-import axios from "axios";
+import product from "@/services/product.service";
+import { Product } from "@/interfaces/product.interface";
 import { ref } from "vue";
 
-const data = ref<[]>();
+const all_products = ref<Product>();
 
-let home_clothes = () => {
-  axios
-    .get("https://fakestoreapi.com/products")
-    .then((res) => {
-      console.log(res.data);
-      data.value = res.data;
-    })
-
-    .catch((res) => {
-      console.log(res);
-    });
+let products = async () => {
+  await product
+    .get_all_products()
+    .then((res) => (all_products.value = res.data))
+    .catch((res) => console.log("Error al cargar productos", res));
 };
 
-home_clothes();
+products();
 </script>
 
 <template>
@@ -27,21 +22,21 @@ home_clothes();
   <v-parallax src="@/assets/imgs/bg-home.jpg">
     <v-container fluid>
       <v-row>
-        <v-col v-for="items in data" :key="items._id" xl="3" xxl="2">
+        <v-col v-for="product in all_products" :key="product.id" xl="3" xxl="2">
           <v-card class="ma-10 pa-4 rounded-xl" color="#2B2730">
             <v-img
               class="iimg rounded-xl"
-              :src="items.image"
+              :src="product.image"
               height="200px"
               cover
             />
             <div class="mt-5 d-flex flex-column align-start justify-center">
               <div class="d-flex align-start w-100 pa-1 text-box">
                 <div class="w-80 text-h4 font-weight-medium text-box__title">
-                  {{ items.title }}
+                  {{ product.title }}
                 </div>
                 <div class="w-20 ml-2 text-h5 font-weight-medium font-italic">
-                  {{ items.price }}$
+                  {{ product.price }}$
                 </div>
               </div>
 
@@ -50,11 +45,11 @@ home_clothes();
                   half-increments
                   clearable
                   density="compact"
-                  :model-value="items.rating.rate"
+                  :model-value="product.rating.rate"
                   active-color="grey-lighten-2"
                   color="grey-lighten-2"
                 ></v-rating>
-                <span class="ml-2">({{ items.rating.count }})</span>
+                <span class="ml-2">({{ product.rating.count }})</span>
               </div>
 
               <div class="d-flex align-center mt-10">

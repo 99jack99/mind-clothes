@@ -1,20 +1,14 @@
 <script lang="ts" setup>
-import axios from "axios";
 import { ref } from "vue";
+import product from "@/services/product.service";
 
 let categories = ref<[]>();
 
-let get_categories = () => {
-  axios
-    .get("https://fakestoreapi.com/products/categories")
-    .then((res) => {
-      console.log(res);
-      categories.value = res.data;
-    })
-
-    .catch((res) => {
-      console.log(res);
-    });
+let get_categories = async () => {
+  await product
+    .get_categories()
+    .then((res) => (categories.value = res.data))
+    .catch((res) => console.log("Error", res));
 };
 
 get_categories();
