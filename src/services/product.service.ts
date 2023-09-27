@@ -14,8 +14,8 @@ export default{
     return Api().get('/products/categories')
   },
 
-  get_cat_products(){
-    return Api().get('/products/category/jewelery')
+  get_cat_products(category:string){
+    return Api().get(`/products/category/${category}`)
   }
 
 }
