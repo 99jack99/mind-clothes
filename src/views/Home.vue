@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 // Components
 import Offer from "@/components/offer.vue";
-import Filtersnav from "@/components/navfilters.vue";
 
 // Helpers
 import product from "@/services/product.service";
@@ -14,12 +13,26 @@ import { ref, watch } from "vue";
 const all_products = ref<Product>();
 const categories = ref<[]>();
 const selected_category = ref("");
+const order = ref();
 
 // Methods
 let products = async () => {
   await product
     .get_all_products()
-    .then((res) => (all_products.value = res.data))
+    .then((res) => {
+      all_products.value = res.data;
+      console.log(res);
+    })
+    .catch((res) => console.log("Error al cargar productos", res));
+};
+
+let products_sorted = async () => {
+  await product
+    .get_all_products_sorted(order.value)
+    .then((res) => {
+      all_products.value = res.data;
+      console.log(res);
+    })
     .catch((res) => console.log("Error al cargar productos", res));
 };
 
@@ -37,11 +50,21 @@ let get_productbycat = async () => {
     .catch((res) => console.log("mal", res));
 };
 
+let restore_filters = () => {
+  order.value = undefined;
+  selected_category.value = "";
+  products();
+};
+
+// Lifecycle & scripts
 watch(selected_category, () => {
   get_productbycat();
 });
 
-// Lifecycle & scripts
+watch(order, () => {
+  products_sorted();
+});
+
 products();
 get_categories();
 </script>
@@ -66,8 +89,11 @@ get_categories();
             </v-list-item>
           </v-list>
         </v-menu>
-        <div class="category-btn">Asc</div>
-        <div class="category-btn">Desc</div>
+        <div class="category-btn" @click="order = 'adc'">Older</div>
+        <div class="category-btn" @click="order = 'desc'">Newer</div>
+        <div class="category-btn" @click="restore_filters()">
+          Restore filters
+        </div>
       </div>
       <v-row>
         <v-col v-for="product in all_products" :key="product.id" xl="3" xxl="2">

@@ -3,7 +3,11 @@ import  Api  from "./Api";
 export default{
 
   get_all_products(){
-    return Api().get('/products')
+    return Api().get(`/products`)
+  },
+
+  get_all_products_sorted(sort:'asc' | 'desc'){
+    return Api().get(`/products/?sort=${sort}`)
   },
 
   get_a_product(id:number){
