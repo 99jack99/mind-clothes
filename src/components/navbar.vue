@@ -21,26 +21,12 @@ get_categories();
       ><img class="logo" src="@/assets/imgs/logo/logo.svg"
     /></router-link>
 
+    <v-spacer />
+
     <div class="search-bar">
       <input class="search-bar__input" placeholder="Search" type="text" />
       <img class="search-bar__icon" src="@/assets/imgs/icons/Search.svg" />
     </div>
-
-    <v-spacer />
-
-    <v-menu>
-      <template v-slot:activator="{ props }">
-        <div class="category-btn" v-bind="props">
-          <img src="@/assets/imgs/icons/Category.svg" />
-          <div>Category</div>
-        </div>
-      </template>
-      <v-list>
-        <v-list-item v-for="category in categories" :key="category">
-          <v-list-item-title>{{ category }}</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-menu>
 
     <router-link to="/fav"
       ><v-btn icon>
@@ -79,22 +65,6 @@ get_categories();
   &__icon {
     position: relative;
     right: 40px;
-  }
-}
-
-.category-btn {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-right: 20px;
-  padding: 10px 20px;
-  border-radius: 10px;
-
-  &:hover {
-    background-color: $shade-lgt;
-    cursor: pointer;
   }
 }
 </style>

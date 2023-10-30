@@ -5,11 +5,13 @@ import Offer from "@/components/offer.vue";
 // Helpers
 import product from "@/services/product.service";
 import { Product } from "@/interfaces/product.interface";
+import { useCartStore } from "@/store/cartStore";
 
 // Gen. imports
 import { ref, watch } from "vue";
 
 // Variables
+let cartStore = useCartStore();
 const all_products = ref<Product>();
 const categories = ref<[]>();
 const selected_category = ref("");
@@ -101,7 +103,7 @@ get_categories();
             <v-img
               class="iimg rounded-xl"
               :src="product.image"
-              height="200px"
+              height="300px"
               cover
             />
             <div class="mt-5 d-flex flex-column align-start justify-center">
@@ -128,7 +130,7 @@ get_categories();
 
               <div class="d-flex align-center mt-10">
                 <v-btn icon class="bg-grey-lighten-2">
-                  <v-icon>
+                  <v-icon @click="cartStore.add_item_to_Cart(product)">
                     <img src="@/assets/imgs/icons/Buy.svg" />
                   </v-icon>
                 </v-btn>
