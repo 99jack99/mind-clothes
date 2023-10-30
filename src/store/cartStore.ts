@@ -12,13 +12,7 @@ export const useCartStore = defineStore({
 
   getters: {
     /* total: (state) => {
-  
-
-
-
       return state.cart_items.reduce((a ,b)=> a + b.price)
-      
-      
     } */
   },
 

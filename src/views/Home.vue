@@ -81,7 +81,7 @@ get_categories();
         <v-menu>
           <template v-slot:activator="{ props }">
             <div class="category-btn" v-bind="props">
-              <img src="@/assets/imgs/icons/Category.svg" />
+              <img src="@/assets/icons/Category.svg" />
               <div>Category</div>
             </div>
           </template>
@@ -130,13 +130,13 @@ get_categories();
 
               <div class="d-flex align-center mt-10">
                 <v-btn icon class="bg-grey-lighten-2">
-                  <v-icon @click="cartStore.add_item_to_Cart(product)">
-                    <img src="@/assets/imgs/icons/Buy.svg" />
+                  <v-icon @click="cartStore.add_item_cart(product)">
+                    <img src="@/assets/icons/Buy.svg" />
                   </v-icon>
                 </v-btn>
                 <v-btn class="ml-2 bg-pink-lighten-4" icon>
                   <v-icon>
-                    <img src="@/assets/imgs/icons/Heart.svg" />
+                    <img src="@/assets/icons/Heart.svg" />
                   </v-icon>
                 </v-btn>
               </div>

@@ -5,13 +5,13 @@
     <div class="d-flex flex-row my-5">
       <v-btn icon class="ma-2">
         <v-icon>
-          <img src="@/assets/imgs/icons/Github.svg" />
+          <img src="@/assets/icons/Github.svg" />
         </v-icon>
       </v-btn>
 
       <v-btn icon class="ma-2">
         <v-icon>
-          <img src="@/assets/imgs/icons/Linkedin.svg" />
+          <img src="@/assets/icons/Linkedin.svg" />
         </v-icon>
       </v-btn>
     </div>

@@ -11,9 +11,7 @@
     <v-btn class="rounded-xl">
       Buy now!
       <template v-slot:append>
-        <v-icon>
-          <img src="@/assets/imgs/icons/Arrow-down.svg" alt=""
-        /></v-icon>
+        <v-icon> <img src="@/assets/icons/Arrow-down.svg" alt="" /></v-icon>
       </template>
     </v-btn>
   </div>

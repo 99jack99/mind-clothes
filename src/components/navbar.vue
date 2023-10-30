@@ -18,27 +18,27 @@ get_categories();
   <!--   class="py-4 pl-4" -->
   <v-app-bar flat border height="120">
     <router-link to="/"
-      ><img class="logo" src="@/assets/imgs/logo/logo.svg"
+      ><img class="logo" src="@/assets/logo/logo.svg"
     /></router-link>
 
     <v-spacer />
 
     <div class="search-bar">
       <input class="search-bar__input" placeholder="Search" type="text" />
-      <img class="search-bar__icon" src="@/assets/imgs/icons/Search.svg" />
+      <img class="search-bar__icon" src="@/assets/icons/Search.svg" />
     </div>
 
     <router-link to="/fav"
       ><v-btn icon>
         <v-icon>
-          <img src="@/assets/imgs/icons/Heart.svg" />
+          <img src="@/assets/icons/Heart.svg" />
         </v-icon> </v-btn
     ></router-link>
 
     <router-link to="/cart"
       ><v-btn icon>
         <v-icon>
-          <img src="@/assets/imgs/icons/Bag.svg" />
+          <img src="@/assets/icons/Bag.svg" />
         </v-icon> </v-btn
     ></router-link>
   </v-app-bar>
